@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration Info - Site Descriptive Info</title>
+</head>
+<body>
+    
+    <header></header>
+    
+    <!-- Main Tabs for Welcome Page -->
+    <div class="tab" data-group="main">
+        <button class="tablinks" onclick="location.href='{% url 'registeration' %}'">Registeration</button>
+        <button class="tablinks" onclick="location.href='{% url 'login' %}'">Login</button>
+        <button class="tablinks" onclick="location.href='{% url 'antenna' %}'">Antenna</button>
+        <button class="tablinks" onclick="location.href='{% url 'configuration' %}'">Configuration</button>
+        <button class="tablinks" onclick="location.href='{% url 'logbook' %}'">Logbook</button>
+        <button class="tablinks" onclick="location.href='{% url 'summary' %}'">Summary</button>
+        <button class="tablinks" onclick="location.href='{% url 'impressum' %}'">Impressum</button>
+
+    <header></header>
+        <!-- Main Tabs for Configuration Welcome Page -->
+    <div class="tab" data-group="main">
+        <button class="tablinks" onclick="location.href='{% url 'contact' %}'">Contact</button>
+        <button class="tablinks" onclick="location.href='{% url 'site_identification' %}'">Site Identification</button>
+        <button class="tablinks" onclick="location.href='{% url 'site_local_network_info' %}'">Site Local Network Info</button>
+        <button class="tablinks" onclick="location.href='{% url 'site_descriptive_info' %}'">Site Descriptive Info</button>
+        <button class="tablinks" onclick="location.href='{% url 'antenna_details' %}'">Antenna Details</button>
+        <button class="tablinks" onclick="location.href='{% url 'receiver' %}'">Receiver</button>
+        <button class="tablinks" onclick="location.href='{% url 'cables_receiver_and_backend' %}'">Cables Receiver and Back end</button>
+        <button class="tablinks" onclick="location.href='{% url 'data_acquisition_system' %}'">Data Acquisition System</button>
+        <button class="tablinks" onclick="location.href='{% url 'meteorological_instrumentation' %}'">Meteorological Instrumentation</button>
+        <button class="tablinks" onclick="location.href='{% url 'time_and_frequency_standards' %}'">Time & Frequency Standards</button>
+        <button class="tablinks" onclick="location.href='{% url 'auxilliary_equipment' %}'">Auxilliary Equipment</button>
+        <button class="tablinks" onclick="location.href='{% url 'co_locations' %}'">Co Locations</button>
+        <button class="tablinks" onclick="location.href='{% url 'field_system_computer' %}'">Field System Computer</button>
+        <button class="tablinks" onclick="location.href='{% url 'on_site_contact' %}'">On Site Contact</button>
+        <button class="tablinks" onclick="location.href='{% url 'responsible_agency' %}'">Responsible Agency</button>
+
+        <h2>Configuration Info - Site Descriptive Info</h2>
+        
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Next</button>
+        </form>
+    </div>    
+</body>
+</html>
+{% endblock %} 

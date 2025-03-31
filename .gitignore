@@ -1,0 +1,16 @@
+# Byte-compiled / binary files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+env/
+
+# Django secrets
+*.sqlite3
+*.log
+.env
+
+# IDE files
+.vscode/
+.idea/

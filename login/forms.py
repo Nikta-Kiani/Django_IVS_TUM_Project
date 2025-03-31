@@ -1,0 +1,11 @@
+from django import forms
+from django.contrib.auth.forms import AuthenticationForm
+
+# Login form for existing users
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'autocomplete': 'username', 'placeholder': 'Username'})
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'autocomplete': 'current-password', 'placeholder': 'Password'})
+    )

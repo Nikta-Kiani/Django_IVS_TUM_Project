@@ -1,0 +1,348 @@
+{% load static %}
+
+{% block content %}
+<header></header>
+    
+    <!-- Main Tabs for Welcome Page -->
+    <div class="tab" data-group="main">
+        <button class="tablinks" onclick="location.href='{% url 'registeration' %}'">Registeration</button>
+        <button class="tablinks" onclick="location.href='{% url 'login' %}'">Login</button>
+        <button class="tablinks" onclick="location.href='{% url 'antenna' %}'">Antenna</button>
+        <button class="tablinks" onclick="location.href='{% url 'configuration' %}'">Configuration</button>
+        <button class="tablinks" onclick="location.href='{% url 'logbook' %}'">Logbook</button>
+        <button class="tablinks" onclick="location.href='{% url 'summary' %}'">Summary</button>
+        <button class="tablinks" onclick="location.href='{% url 'impressum' %}'">Impressum</button>
+
+<h1>Total Summary</h1>
+<p> </p>
+<h3>Review all the information entered in the previous tabs here:</h3>
+<p> </p>
+<p> </p>
+
+<!-- Summary Tab -->
+<div id="Summary" class="tabcontent" data-group="antenna">
+    <h2>DOMES INFORMATION FORM - Summary</h2>
+    <p> </p>
+    <h4>Request Form</h4>
+    <p><strong>Full Name:</strong> {{ request_data.full_name }}</p>
+    <p><strong>Agency:</strong> {{ request_data.agency }}</p>
+    <p><strong>Email:</strong> {{ request_data.email }}</p>
+    <p><strong>Date:</strong> {{ request_data.date }}</p>
+    <p> </p>
+    <h4>Site Description</h4>
+    <p><strong>Site Name:</strong> {{ site_description_data.site_name }}</p>
+    <p><strong>City or Town:</strong> {{ site_description_data.city_or_town }}</p>
+    <p><strong>State or Province:</strong> {{ site_description_data.state_or_province }}</p>
+    <p><strong>Country:</strong> {{ site_description_data.country }}</p>
+    <p><strong>Point Description:</strong> {{ site_description_data.point_description }}</p>
+    <p><strong>Support Description:</strong> {{ site_description_data.support_description }}</p>
+    <p><strong>Picture:</strong> <img src="{{ site_description_data.picture.url }}" alt="Picture" /></p>
+    <p> </p>
+    <h4>DOMES Information</h4>
+    <p><strong>DOMES Number:</strong> {{ domes_info_data.domes_number }}</p>
+    <p><strong>Local Number:</strong> {{ domes_info_data.local_number }}</p>
+    <p><strong>4-Char Code:</strong> {{ domes_info_data.four_char_code }}</p>
+    <p> </p>
+    <h4>Approximate Position</h4>
+    <p><strong>X Coordinate(m):</strong> {{ approximate_position_data.x_coordinate_m }}</p>
+    <p><strong>Y Coordinate(m):</strong> {{ approximate_position_data.y_coordinate_m }}</p>
+    <p><strong>Z Coordinate(m):</strong> {{ approximate_position_data.z_coordinate_m }}</p>
+    <p><strong>Latitude(deg-min):</strong> {{ approximate_position_data.latitude_deg_min }}</p>
+    <p><strong>Longitude(deg-min):</strong> {{ approximate_position_data.longitude_deg_min }}</p>
+    <p><strong>Elevation(m):</strong> {{ approximate_position_data.elevation_m }}</p>
+    <p><strong>Tectonic Plate:</strong> {{ approximate_position_data.tectonic_plate }}</p>
+    <p> </p>
+    <h4>Instrument</h4>
+    <p><strong>Instrument:</strong> {{ instrument_data.instrument }}</p>
+    <p><strong>Installation Date:</strong> {{ instrument_data.date_of_installation }}</p>
+    <p> </p>
+    <h4>Operation Contact</h4>
+    <p><strong>Contact Name:</strong> {{ operation_contact_data.operation_contact_name }}</p>
+    <p><strong>Agency:</strong> {{ operation_contact_data.operation_agency }}</p>
+    <p><strong>Email One:</strong> {{ operation_contact_data.operation_email_one }}</p>
+    <p><strong>Email Two:</strong> {{ operation_contact_data.operation_email_two }}</p>
+    <p> </p>
+    <h4>Site Contact</h4>
+    <p><strong>Contact Name:</strong> {{ site_contact_data.site_contact_name }}</p>
+    <p><strong>Agency:</strong> {{ site_contact_data.site_agency }}</p>
+    <p><strong>Email:</strong> {{ site_contact_data.site_email }}</p>
+    <p> </p>
+    <h4>Additional Info</h4>
+    <p><strong>Additional Info:</strong> {{ site_contact_data.additional_info }}</p>
+    <p> </p>
+    <p> </p>
+<div id="Summary" class="tabcontent" data-group="configuration">
+    <h2>Configuration Info - Summary</h2>
+    <p> </p>
+    <h4>Contact</h4>
+    <p><strong>Prepared by (Full Name):</strong> {{ contact_data.full_name }}</p>
+    <p><strong>Email:</strong> {{ contact_data.email }}</p>
+    <p><strong>Update Date:</strong> {{ contact_data.update_date }}</p>
+    <p><strong>Report Type:</strong> {{ contact_data.report_type }}</p>
+    <p> </p>
+
+    <h4>Site Identification Data</h4>
+    <p><strong>Site Name:</strong> {{ site_identification_data.site_name }}</p>
+    <p><strong>Site 8 Letter Code:</strong> {{ site_identification_data.site_8_letter_code }}</p>
+    <p><strong>Site 2 Letter Code:</strong> {{ site_identification_data.site_2_letter_code }}</p>
+    <p><strong>IERS Domes Number:</strong> {{ site_identification_data.IERS_domes_number }}</p>
+    <p><strong>CDP Occupation Code:</strong> {{ site_identification_data.CDP_occupation_code }}</p>
+    <p><strong>CDP Monument Number:</strong> {{ site_identification_data.CDP_monument_number }}</p>
+    <p><strong>IGS Station Code:</strong> {{ site_identification_data.IGS_station_code }}</p>
+    <p><strong>ILRS Station Name:</strong> {{ site_identification_data.ILRS_station_name }}</p>
+    <p><strong>Survey Info of National Network:</strong> {{ site_identification_data.survey_info_national_network }}</p>
+    <p><strong>Start Date of Operation:</strong> {{ site_identification_data.start_date_of_operation }}</p>
+    <p><strong>Additional Info:</strong> {{ site_identification_data.additional_info }}</p>
+    <p> </p>
+    
+    <h4>Site Local Network Info Data</h4>
+    <p><strong>Type of Marker:</strong> {{ site_local_network_info_data.type_of_marker }}</p>
+    <p><strong>Frequency of Surveying:</strong> {{ site_local_network_info_data.frequency_of_surveying }}</p>
+    <p><strong>Surveying Method:</strong> {{ site_local_network_info_data.surveying_method }}</p>
+    <p><strong>Survey Used Instruments:</strong> {{ site_local_network_info_data.survey_instruments_used }}</p>
+    <p><strong>Accuracy:</strong> {{ site_local_network_info_data.accuracy }}</p>
+    <p><strong>Survey Performed by:</strong> {{ site_local_network_info_data.survey_performed_by }}</p>
+    <p><strong>Survey Documentation:</strong> {{ site_local_network_info_data.survay_documentation }}</p>
+    <p><strong>Most Recent Survey Date:</strong> {{ site_local_network_info_data.most_recent_survey_date }}</p>
+    <p><strong>Results Provided to IERS:</strong> {{ site_local_network_info_data.results_provided_to_IERS }}</p>
+    <p><strong>Results Provided to CDDIS:</strong> {{ site_local_network_info_data.results_provided_to_CDDIS }}</p>
+    <p><strong>Number of Reference Markers:</strong> {{ site_local_network_info_data.number_of_reference_markers }}</p>
+    <p><strong>Local Additional Info:</strong> {{ site_local_network_info_data.local_additional_info }}</p>
+    <p> </p>
+    
+    <h4>Site Descriptive Info</h4>
+    <p><strong>Site Map:</strong> <img src="{{ site_descriptive_info_data.site_map.url }}" alt="site_map" /></p>
+    <p><strong>Site Map Url:</strong> {{ site_descriptive_info_data.site_map_url }}</p>
+    <p><strong>Site Diagram:</strong> <img src="{{ site_descriptive_info_data.site_diagram.url }}" alt="site_diagram" /></p>
+    <p><strong>Site Diagram Url:</strong> {{ site_descriptive_info_data.site_diagram_url }}</p>
+    <p><strong>Horizon Mask:</strong> <img src="{{ site_descriptive_info_data.horizon_mask.url }}" alt="horizon_mask" /></p>
+    <p><strong>Horizon Mask Url:</strong> {{ site_descriptive_info_data.horizon_mask_url }}</p>
+    <p><strong>Monument Description:</strong> <img src="{{ site_descriptive_info_data.monument_description.url }}" alt="monument_description" /></p>
+    <p><strong>Monument Description Url:</strong> {{ site_descriptive_info_data.monument_description_url }}</p>
+    <p><strong>Site Photographs:</strong> <img src="{{ site_descriptive_info_data.site_photographs.url }}" alt="site_photographs" /></p>
+    <p><strong>Site Photographs Url:</strong> {{ site_descriptive_info_data.site_photographs_url }}</p>
+    <p> </p>
+    
+    <h4>Antenna Details</h4>
+    <p><strong>Antenna Type:</strong> {{ antenna_details_data.antenna_type }}</p>
+    <p><strong>Diameter (m):</strong> {{ antenna_details_data.diameter_m }}</p>
+    <p><strong>Axis Type:</strong> {{ antenna_details_data.axis_type }}</p>
+    <p><strong>Axis offset (m):</strong> {{ antenna_details_data.axis_offset_m }}</p>
+    <p><strong>Slew Rate First Axis (deg_min):</strong> {{ antenna_details_data.slew_rate_first_axis_deg_min }}</p>
+    <p><strong>Slew Rate Second Axis (deg_min):</strong> {{ antenna_details_data.slew_rate_second_axis_deg_min }}</p>
+    <p><strong>Min Limit First Axis (deg):</strong> {{ antenna_details_data.min_limit_first_axis_deg }}</p>
+    <p><strong>Max Limit First Axis (deg):</strong> {{ antenna_details_data.max_limit_first_axis_deg }}</p>
+    <p><strong>Min Limit Second Axis (deg):</strong> {{ antenna_details_data.min_limit_second_axis_deg }}</p>
+    <p><strong>Max Limit Second Axis (deg):</strong> {{ antenna_details_data.max_limit_second_axis_deg }}</p>
+    <p><strong>Horizon Mask Data Azimuth (deg) Coressponding Elevationmask (deg):</strong> {{ antenna_details_data.horizon_mask_data_azimuth_deg_coressponding_elevationmask_deg }}</p>
+    <p><strong>Start Date of Occupation:</strong> {{ antenna_details_data.start_date_of_occupation }}</p>
+    <p><strong>End Date of Occupation:</strong> {{ antenna_details_data.end_date_of_occupation }}</p>
+    <p><strong>Antenna Additional Info:</strong> {{ antenna_details_data.antenna_additional_info }}</p>
+    <p> </p>
+    
+    <h4>Receiver</h4>
+    <p><strong>Feed Location:</strong> {{ receiver_data.feed_location }}</p>
+    <p><strong>Feed Type:</strong> {{ receiver_data.feed_type }}</p>
+    <p><strong>X First Stage Amplifier:</strong> {{ receiver_data.x_first_stage_amplifier }}</p>
+    <p><strong>X Bandwidth (MHz):</strong> {{ receiver_data.x_bandwidth_mhz }}</p>
+    <p><strong>X TSYS at Zenith K:</strong> {{ receiver_data.x_tsys_at_zenith_k }}</p>
+    <p><strong>X SEFD JY:</strong> {{ receiver_data.x_sefd_jy }}</p>
+    <p><strong>X Aperture Efficiency:</strong> {{ receiver_data.x_aperture_efficiency }}</p>
+    <p><strong>X LO Frequencies (MHz):</strong> {{ receiver_data.x_lo_frequencies_mhz }}</p>
+    <p><strong>S First Stage Amplifier:</strong> {{ receiver_data.s_first_stage_amplifier }}</p>
+    <p><strong>S Bandwidth (MHz):</strong> {{ receiver_data.s_bandwidth_mhz }}</p>
+    <p><strong>S TSYS at Zenith K:</strong> {{ receiver_data.s_tsys_at_zenith_k }}</p>
+    <p><strong>S SEFD JY:</strong> {{ receiver_data.s_sefd_jy }}</p>
+    <p><strong>S Aperture Efficiency:</strong> {{ receiver_data.s_aperture_efficiency }}</p>
+    <p><strong>S LO Frequencies (MHz):</strong> {{ receiver_data.s_lo_frequencies_mhz }}</p>
+    <p><strong>Phase Calibrator Type:</strong> {{ receiver_data.phase_calibrator_type }}</p>
+    <p><strong>Receiver Additional Info:</strong> {{ receiver_data.receiver_additional_info }}</p>
+    <p> </p>
+    
+    <h4>Cables Receiver and Back End</h4>
+    <p><strong>Length of Cable Run (m):</strong> {{ cables_receiver_and_backend_data.length_of_cable_run_m }}</p>
+    <p><strong>X Band Cable Type:</strong> {{ cables_receiver_and_backend_data.x_band_cable_type }}</p>
+    <p><strong>X Band Frequency Bndpass (MHz):</strong> {{ cables_receiver_and_backend_data.x_band_freq_bandpass_mhz }}</p>
+    <p><strong>S Band Cable Type:</strong> {{ cables_receiver_and_backend_data.s_band_cable_type }}</p>
+    <p><strong>S Band Frequency Bndpass (MHz):</strong> {{ cables_receiver_and_backend_data.s_band_freq_bandpass_mhz }}</p>
+    <p><strong>LO Reference Signal Scable Type:</strong> {{ cables_receiver_and_backend_data.lo_ref_signal_cable_type }}</p>
+    <p><strong>LO Reference Signal Frequency (MHz):</strong> {{ cables_receiver_and_backend_data.lo_ref_signal_freq_mhz }}</p>
+    <p><strong>Phase Cal Reference Signal Cable Type:</strong> {{ cables_receiver_and_backend_data.phase_cal_ref_signal_cable_type }}</p>
+    <p><strong>Phase Cal Reference Signal Frequency (MHz):</strong> {{ cables_receiver_and_backend_data.phase_cal_ref_signal_freq_mhz }}</p>
+    <p><strong>Cable Measure System Type:</strong> {{ cables_receiver_and_backend_data.cable_measure_system_type }}</p>
+    <p><strong>Cables Additional Info:</strong> {{ cables_receiver_and_backend_data.cables_additional_info }}</p>
+    <p> </p>
+    
+    <h4>Data Acquisition System</h4>
+    <p><strong>Type of Video Converter:</strong> {{ data_acquisition_system_data.type_of_video_converter }}</p>
+    <p><strong>Number of Mixers:</strong> {{ data_acquisition_system_data.number_of_mixers }}</p>
+    <p><strong>Available Sidebands:</strong> {{ data_acquisition_system_data.sidebands_available }}</p>
+    <p><strong>Number of Mixers with 2MHz Filter:</strong> {{ data_acquisition_system_data.number_of_mixers_with_2mhz_filter }}</p>
+    <p><strong>Number of Mixers with 4MHz Filter:</strong> {{ data_acquisition_system_data.number_of_mixers_with_4mhz_filter }}</p>
+    <p><strong>Number of Mixers with 8MHz Filter:</strong> {{ data_acquisition_system_data.number_of_mixers_with_8mhz_filter }}</p>
+    <p><strong>Number of Mixers with 16MHz Filter:</strong> {{ data_acquisition_system_data.number_of_mixers_with_16mhz_filter }}</p>
+    <p><strong>Number of Mixers with 32MHz Filter:</strong> {{ data_acquisition_system_data.number_of_mixers_with_32mhz_filter }}</p>
+    <p><strong>Additional Video Converter:</strong> {{ data_acquisition_system_data.additional_video_converter }}</p>
+    <p><strong>Formatter Type:</strong> {{ data_acquisition_system_data.formatter_type }}</p>
+    <p><strong>Serial Number or Rack ID:</strong> {{ data_acquisition_system_data.serial_number_or_rack_id }}</p>
+    <p><strong>Additional Formattter:</strong> {{ data_acquisition_system_data.additional_formattter }}</p>
+    <p><strong>Decode Type:</strong> {{ data_acquisition_system_data.decode_type }}</p>
+    <p><strong>Additional Decoder:</strong> {{ data_acquisition_system_data.additional_decoder }}</p>
+    <p><strong>IF Distributor Type:</strong> {{ data_acquisition_system_data.IF_distributor_type }}</p>
+    <p><strong>Additional IF Distributor:</strong> {{ data_acquisition_system_data.additional_IF_distributor }}</p>
+    <p><strong>X Down Converter Frequency:</strong> {{ data_acquisition_system_data.X_down_converter_freq }}</p>
+    <p><strong>S Up-Down Converter Frequency:</strong> {{ data_acquisition_system_data.S_up_down_converter_freq }}</p>
+    <p><strong>Other Rack Equipment:</strong> {{ data_acquisition_system_data.other_rack_equipment }}</p>
+    <p><strong>Additional Rack Equipment:</strong> {{ data_acquisition_system_data.additional_rack_equipment }}</p>
+    <p><strong>Recorder Type:</strong> {{ data_acquisition_system_data.recorder_type }}</p>
+    <p><strong>Number of Recorders:</strong> {{ data_acquisition_system_data.number_of_recorders }}</p>
+    <p><strong>Tape Type:</strong> {{ data_acquisition_system_data.tape_type }}</p>
+    <p><strong>Data Additional Info:</strong> {{ data_acquisition_system_data.data_additional_info }}</p>
+    <p><strong>Additional Recorder Type:</strong> {{ data_acquisition_system_data.additional_recorder_type }}</p>
+    <p><strong>Configuration Types Supported:</strong> {{ data_acquisition_system_data.configuration_types_supported }}</p>
+    <p><strong>Additional Configuration Info:</strong> {{ data_acquisition_system_data.additional_configuration_info }}</p>
+    <p> </p>
+    
+    <h4>Meteorological Instrumentation</h4>
+    <p> </p>
+    
+    <h5>Humidity Sensor</h5>
+    <p><strong>Humidity Sensor Manufacturer:</strong> {{ meteorological_instrumentation_data.humidity_sensor_manufacturer }}</p>
+    <p><strong>Humidity Sensor Model:</strong> {{ meteorological_instrumentation_data.humidity_sensor_model }}</p>
+    <p><strong>Humidity Sensor Accuracy:</strong> {{ meteorological_instrumentation_data.humidity_sensor_accuracy }}</p>
+    <p><strong>Humidity Sensor Effective Dates:</strong> {{ meteorological_instrumentation_data.humidity_sensor_effective_dates }}</p>
+    <p><strong>Addtional Humidity Sensor Info:</strong> {{ meteorological_instrumentation_data.addtional_humidity_sensor_info }}</p>
+    <h5>Pressure Sensor</h5>
+    <p><strong>Pressure Sensor Manufacturer:</strong> {{ meteorological_instrumentation_data.pressure_sensor_manufacturer }}</p>
+    <p><strong>Pressure Sensor Model:</strong> {{ meteorological_instrumentation_data.pressure_sensor_model }}</p>
+    <p><strong>Pressure Sensor Accuracy:</strong> {{ meteorological_instrumentation_data.pressure_sensor_accuracy }}</p>
+    <p><strong>Pressure Sensor Effective Dates:</strong> {{ meteorological_instrumentation_data.pressure_sensor_effective_dates }}</p>
+    <p><strong>Pressure Sensor Height Relative to VLBI in Meters:</strong> {{ meteorological_instrumentation_data.pressure_sensor_height_relative_to_VLBI_in_meters }}</p>
+    <p><strong>Pressure Sensor Additional Info:</strong> {{ meteorological_instrumentation_data.pressure_sensor_additional_info }}</p>
+    <h5>Temperature Sensor</h5>
+    <p><strong>Temperature Sensor Manufacturer:</strong> {{ meteorological_instrumentation_data.temperature_sensor_manufacturer }}</p>
+    <p><strong>Temperature Sensor Model:</strong> {{ meteorological_instrumentation_data.temperature_sensor_model }}</p>
+    <p><strong>Temperature Sensor Accuracy:</strong> {{ meteorological_instrumentation_data.temperature_sensor_accuracy }}</p>
+    <p><strong>Temperature Sensor Effective Dates:</strong> {{ meteorological_instrumentation_data.temperature_sensor_effective_dates }}</p>
+    <p><strong>Temperature Sensor Additional Info:</strong> {{ meteorological_instrumentation_data.temperature_sensor_additional_info }}</p>
+    <p> </p>
+    
+    <h4>Time & Frequency Standards</h4>
+    <p><strong>Standard Type:</strong> {{ time_and_frequency_standards_data.standard_type }}</p>
+    <p><strong>Installed Dates Duration:</strong> {{ time_and_frequency_standards_data.installed_dates_duration }}</p>
+    <p><strong>Manufacturer:</strong> {{ time_and_frequency_standards_data.manufacturer }}</p>
+    <p><strong>Model Number or ID:</strong> {{ time_and_frequency_standards_data.model_number_or_ID }}</p>
+    <p><strong>Time & Frequency Additional Info:</strong> {{ time_and_frequency_standards_data.time_and_frequency_additional_info }}</p>
+    <p> </p>
+    
+    <h4>Auxilliary Equipment</h4>
+    <p> </p>
+    
+    <h5>First Equipment</h5>
+    <p><strong>First Equipment Type:</strong> {{ auxilliary_equipment_data.first_equipment_type }}</p>
+    <p><strong>First Installed Dates:</strong> {{ auxilliary_equipment_data.first_installed_dates }}</p>
+    <p><strong>Fisrt Manufacturer:</strong> {{ auxilliary_equipment_data.fisrt_manufacturer }}</p>
+    <p><strong>Fisrt Model Number or ID:</strong> {{ auxilliary_equipment_data.fisrt_model_number_or_ID }}</p>
+    <p><strong>First Additional Info:</strong> {{ auxilliary_equipment_data.first_additional_info }}</p>
+    <h5>Second Equipment</h5>
+    <p><strong>Second Equipment Type:</strong> {{ auxilliary_equipment_data.second_equipment_type }}</p>
+    <p><strong>Second Installed Dates:</strong> {{ auxilliary_equipment_data.second_installed_dates }}</p>
+    <p><strong>Second Manufacturer:</strong> {{ auxilliary_equipment_data.second_manufacturer }}</p>
+    <p><strong>Second Additional Info:</strong> {{ auxilliary_equipment_data.second_additional_info }}</p>
+    <p> </p>
+    
+    <h4>Co-Locations</h4>
+    <p><strong>instrument_type:</strong> {{ co_locations_data.instrument_type }}</p>
+    <p><strong>instrument_name:</strong> {{ co_locations_data.instrument_name }}</p>
+    <p><strong>status:</strong> {{ co_locations_data.status }}</p>
+    <p><strong>effective_dates:</strong> {{ co_locations_data.effective_dates }}</p>
+    <p><strong>included_in_local_survey:</strong> {{ co_locations_data.included_in_local_survey }}</p>
+    <p><strong>Co-Locations Additional Info:</strong> {{ co_locations_data.co_locations_additional_info }}</p>
+    <p> </p>
+    
+    <h4>Field System Computer Info</h4>
+    <p><strong>Computer System Vendor:</strong> {{ field_system_computer_data.computer_system_vendor }}</p>
+    <p><strong>Computer CPU:</strong> {{ field_system_computer_data.computer_CPU }}</p>
+    <p><strong>Computer CPU Speed in MHz:</strong> {{ field_system_computer_data.computer_CPU_speed_in_MHz }}</p>
+    <p><strong>Computer Memory in MBytes:</strong> {{ field_system_computer_data.computer_memory_in_Mbytes }}</p>
+    <p><strong>Computer Disk in GBytes:</strong> {{ field_system_computer_data.computer_disk_in_Gbytes }}</p>
+    <p><strong>Computer Linux Release:</strong> {{ field_system_computer_data.computer_Linux_release }}</p>
+    <p><strong>Computer Internet Connection:</strong> {{ field_system_computer_data.computer_internet_connection }}</p>
+    <p><strong>Antenna Interface Type:</strong> {{ field_system_computer_data.antenna_interface_type }}</p>
+    <p><strong>Spare FS Computer:</strong> {{ field_system_computer_data.spare_FS_computer }}</p>
+    <p><strong>Known RFI Sources:</strong> {{ field_system_computer_data.known_RFI_sources }}</p>
+    <p> </p>
+    
+    <h4>On Site Contact</h4>
+    <h5>Agency</h5>
+    <p><strong>Agency:</strong> {{ on_site_contact_data.agency }}</p>
+    <p><strong>Agency Shipping Address:</strong> {{ on_site_contact_data.agency_shipping_address }}</p>
+    <p><strong>Agency Postal Address:</strong> {{ on_site_contact_data.agency_postal_address }}</p>
+    <p><strong>Agency URL of Site Web Page:</strong> <img src="{{ on_site_contact_data.agency_URL_of_site_web_page.url }}" alt="agency_URL_of_site_web_page" /></p>
+    <h5>On Site Friend of VLBI Contact</h5>
+    <p><strong>On Site Friend of VLBI Name:</strong> {{ on_site_contact_data.on_site_friend_of_VLBI_name }}</p>
+    <p><strong>Primary Telephone of On Site Contact:</strong> {{ on_site_contact_data.primary_telephone_of_on_site_friend_of_VLBI }}</p>
+    <p><strong>Alternative Telephone of On Site Contact:</strong> {{ on_site_contact_data.alternative_telephone_of_on_site_friend_of_VLBI }}</p>
+    <p><strong>Fax of On Site Contact:</strong> {{ on_site_contact_data.fax_of_on_site_friend_of_VLBI }}</p>
+    <p><strong>Email of On Site Contact:</strong> {{ on_site_contact_data.email_of_on_site_friend_of_VLBI }}</p>
+    <h5>VLBI Operations Room Contact</h5>
+    <p><strong>Primary Telephone of VLBI Operations Room:</strong> {{ on_site_contact_data.primary_telephone_of_VLBI_operations_room }}</p>
+    <p><strong>Alternative Telephone of VLBI Operations Room:</strong> {{ on_site_contact_data.alternative_telephone_of_VLBI_operations_room }}</p>
+    <p><strong>Fax of VLBI Operations Room:</strong> {{ on_site_contact_data.fax_of_VLBI_operations_room }}</p>
+    <p><strong>Email of VLBI Operations Room:</strong> {{ on_site_contact_data.email_of_VLBI_operations_room }}</p>
+    <h5>Other On Site Contact</h5>
+    <p><strong>Name of Other On Site Contact:</strong> {{ on_site_contact_data.name_of_other_on_site_contact }}</p>
+    <p><strong>Primary Telephone of Other On Site Contact:</strong> {{ on_site_contact_data.primary_telephone_of_other_on_site_contact }}</p>
+    <p><strong>Alternative Telephone of Other On Site Contact:</strong> {{ on_site_contact_data.alternative_telephone_of_other_on_site_contact }}</p>
+    <p><strong>Fax of Other On Site Contact:</strong> {{ on_site_contact_data.fax_of_other_on_site_contact }}</p>
+    <p><strong>Email of Other On Site Contact:</strong> {{ on_site_contact_data.email_of_other_on_site_contact }}</p>
+    <p><strong>On Site Additional Info:</strong> {{ on_site_contact_data.on_site_additional_info }}</p>
+    <p> </p>
+    
+    <h4>Responsible Agency Contact</h4>
+    <p><strong>Responsible Agency:</strong> {{ responsible_agency_data.responsible_agency }}</p>
+    <p><strong>Shipping Address:</strong> {{ responsible_agency_data.shipping_address }}</p>
+    <p><strong>Postal Address:</strong> {{ responsible_agency_data.postal_address }}</p>
+    <p><strong>URL_of_agency_web_page:</strong> <img src="{{ responsible_agency_data.URL_of_agency_web_page.url }}" alt="URL_of_agency_web_page" /></p>
+    <p><strong>Primary Administrative Agency Contact:</strong> {{ responsible_agency_data.primary_administrative_agency_contact_person }}</p>
+    <p><strong>Primary Telephone of Contact Person:</strong> {{ responsible_agency_data.primary_telephone_of_contact_person }}</p>
+    <p><strong>Alternative Telephone of Contact Person:</strong> {{ responsible_agency_data.alternative_telephone_of_contact_person }}</p>
+    <p><strong>Fax of Contact Person:</strong> {{ responsible_agency_data.fax_of_contact_person }}</p>
+    <p><strong>Email of Contact Person:</strong> {{ responsible_agency_data.email_of_contact_person }}</p>
+    <p><strong>Alternative Agency Contact:</strong> {{ responsible_agency_data.alternative_agency_contact }}</p>
+    <p><strong>Alternative Agency Shipping Address:</strong> {{ responsible_agency_data.alternative_agency_shipping_address }}</p>
+    <p><strong>Alternative Agency Postal Address:</strong> {{ responsible_agency_data.alternative_agency_postal_address }}</p>
+    <p><strong>URL of Alternative Agency Web Page:</strong> <img src="{{ responsible_agency_data.alternative_agency_URL_of_agency_web_page.url }}" alt="URL_of_alternative_agency_web_page" /></p>
+    <p><strong>Primary Alternative Administrative Agency Contact Person:</strong> {{ responsible_agency_data.primary_administrative_alternative_agency_contact_person }}</p>
+    <p><strong>Primary Telephone of Alternative Agency Contact Person:</strong> {{ responsible_agency_data.primary_telephone_of_alternative_agency_contact_person }}</p>
+    <p><strong>Alternative Contact Person:</strong> {{ responsible_agency_data.alternative_contact_person }}</p>
+    <p><strong>Alternative Telephone:</strong> {{ responsible_agency_data.alternative_telephone }}</p>
+    <p><strong>Fax of Alternative Contact Person:</strong> {{ responsible_agency_data.fax_of_alternative_contact_person }}</p>
+    <p><strong>Email of Alternative Contact Person:</strong> {{ responsible_agency_data.email_of_alternative_contact_person }}</p>
+    <p> </p>
+    
+    <h4>Additional Info</h4>
+    <p><strong>Additional Info:</strong> {{ responsible_agency_data.additional_info }}</p>
+    <p><strong>More Info:</strong> {{ responsible_agency_data.more_info }}</p>
+    <p> </p>
+    <p> </p>
+<div id="Summary" class="tabcontent" data-group="logbook">
+    <h2>Logbook Info - Summary</h2>
+    <p> </p>
+    <p><strong>Entery Time:</strong> {{ logbook_data.entery_time }}</p>
+    <p><strong>Event Time:</strong> {{ logbook_data.event_time }}</p>
+    <p><strong>Technician Editor/User:</strong> {{ logbook_data.technician_editor }}</p>
+    <p><strong>Participants:</strong> {{ logbook_data.participants }}</p>
+    <p><strong>Telescope:</strong> {{ logbook_data.telescope}}</p>
+    <p><strong>Component:</strong> {{ logbook_data.component }}</p>
+    <p><strong>Detailed Info:</strong> {{ logbook_data.detailed_info }}</p>
+    <p><strong>Attachment:</strong> {{ logbook_data.attachment}}</p>
+    <!-- Finish button to confirm enteries -->
+    <form action="{% url 'impressum' %}" method="get">
+        <button type="submit">finish</button>
+        <a href="{% url 'request_form' %}">Back to Antenna Info</a>
+        <a href="{% url 'contact' %}">Back to Configuration Info</a>
+        <a href="{% url 'logbook_form' %}">Back to Logbook Info</a>
+    </form>
+</div>
+{% endblock %}
