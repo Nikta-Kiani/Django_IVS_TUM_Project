@@ -436,106 +436,19 @@ Click the **Logout** button in the navigation menu to end your session.
 
 ---
 
-## Credits and Acknowledgments
-
-This project is developed as part of a research and educational initiative at the **Technical University of Munich (TUM)** in collaboration with the **International VLBI Service for Geodesy and Astrometry (IVS)** network.
-
-### Acknowledgments
-
-- **Technical University of Munich (TUM)**: For providing the academic framework and support for this project
-- **International VLBI Service (IVS)**: For providing domain expertise and requirements for VLBI station configuration management
-- **Django Software Foundation**: For the excellent Django framework
-- **Open Source Community**: For the various libraries and tools that made this project possible
-
-### Contributors
-
-This project is developed and maintained by students and researchers at TUM as part of ongoing efforts to improve VLBI network operations and data management.
-
 ### Related Resources
 
-- [International VLBI Service (IVS)](https://ivscc.gsfc.nasa.gov/)
 - [Technical University of Munich](https://www.tum.de/)
 - [Django Documentation](https://docs.djangoproject.com/)
-- [VLBI Global Observing System](https://www.ggos.org/)
 
 ---
 
 ## License
 
-This project is licensed under the **MIT License**.
-
-### MIT License
-
-```
-MIT License
-
-Copyright (c) 2025 Technical University of Munich (TUM)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
 
 ---
 
-## Future Development (Planned Features)
-
-### Phase 2
-- Enhanced reporting and analytics
-- Data export functionality (CSV, JSON, XML)
-- Advanced search and filtering capabilities
-- Multi-language support
-- RESTful API for external integrations
-
-### Phase 3
-- Real-time collaboration features
-- Integration with external VLBI databases
-- Automated data validation and quality checks
-- Role-based access control (RBAC)
-- Email notifications for important events
-
----
-
-## Support and Contact
-
-For questions, issues, or contributions, please contact:
-
-- **Project Repository**: [GitHub Repository URL]
-- **Email**: [your-email@tum.de]
-- **Institution**: Technical University of Munich (TUM)
-
----
-
-## Changelog
-
-### Version 1.0.0 (Phase 1) - Current
-- Initial release with core functionality
-- User authentication and registration
-- Antenna information management
-- Configuration data management (18 sub-forms)
-- Logbook system with component tracking
-- Audit logging for data changes
-- Responsive UI with clean design
-- SQLite database integration
-
----
-
-**Last Updated**: October 2025  
-**Project Status**: Active Development (Phase 1)  
+**Last Updated**: October 2025   
 **Django Version**: 5.1  
 **Python Version**: 3.9+
 
