@@ -1,0 +1,12 @@
+# Core Django Framework
+Django==5.1
+
+# Audit logging for tracking model changes
+django-auditlog==3.0.0
+
+# Image processing library for handling ImageField uploads
+Pillow==10.1.0
+
+# SQL parsing (Django dependency)
+sqlparse==0.4.4
+
