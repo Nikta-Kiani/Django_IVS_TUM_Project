@@ -18,12 +18,12 @@ A Django-based web application for managing and storing configuration data for t
 
 ## Project Overview
 
-The **IVS Network Configuration Management System** is a comprehensive web-based platform designed to facilitate the collection, storage, and management of technical configuration data for Very Long Baseline Interferometry (VLBI) stations within the International VLBI Service for Geodesy and Astrometry (IVS) network.
+The **IVS Network Configuration Management System** is a comprehensive web-based platform designed to facilitate the collection, storage, and management of technical configuration data within the International VLBI Service for Geodesy and Astrometry (IVS) network.
 
 This application provides a structured interface for managing:
 - **Antenna Information**: Site descriptions, DOMES identifiers, approximate positions, and instrument details
 - **Configuration Data**: Detailed technical specifications including receiver information, data acquisition systems, meteorological instrumentation, and field system computers
-- **Logbook Entries**: Maintenance logs, technical modifications, and operational events
+- **Logbook Entries**: technical modifications, and operational events
 - **Summary Views**: Consolidated reports and historical data tracking
 
 ### Project Status
