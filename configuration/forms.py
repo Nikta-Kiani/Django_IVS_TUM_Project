@@ -1,18 +1,62 @@
 from django import forms
+from django.core.exceptions import ValidationError
 from .models import ConfigurationInfo
 
 class ContactForm(forms.ModelForm):
     class Meta:
         model = ConfigurationInfo
         fields = ['prepared_by_full_name', 'email', 'update_date', 'report_type']
-        widgets = {'update_date': forms.DateInput(attrs={'type': 'date'})}
+        widgets = {
+            'update_date': forms.DateInput(attrs={'type': 'date', 'required': True}),
+            'prepared_by_full_name': forms.TextInput(attrs={'required': True, 'maxlength': 150}),
+            'email': forms.EmailInput(attrs={'required': True, 'maxlength': 254}),
+            'report_type': forms.TextInput(attrs={'required': True, 'maxlength': 100}),
+        }
+    
+    def clean_prepared_by_full_name(self):
+        full_name = self.cleaned_data.get('prepared_by_full_name')
+        if not full_name or len(full_name.strip()) < 2:
+            raise ValidationError('Full name must be at least 2 characters long.')
+        return full_name.strip()
 
 class SiteIdentificationForm(forms.ModelForm):
     class Meta:
         model = ConfigurationInfo
         fields = ['site_name', 'site_8_letter_code', 'site_2_letter_code', 'IERS_domes_number', 'CDP_occupation_code', 'CDP_monument_number',
                   'IGS_station_code', 'ILRS_station_name', 'survey_into_national_network', 'start_date_of_operation', 'additional_info']
-        widgets = {'start_date_of_operation': forms.DateInput(attrs={'type': 'date'})}
+        widgets = {
+            'start_date_of_operation': forms.DateInput(attrs={'type': 'date'}),
+            'site_name': forms.TextInput(attrs={'required': True, 'maxlength': 100}),
+            'site_8_letter_code': forms.TextInput(attrs={'required': True, 'maxlength': 8, 'pattern': '[A-Za-z0-9]{8}'}),
+            'site_2_letter_code': forms.TextInput(attrs={'required': True, 'maxlength': 2, 'pattern': '[A-Za-z]{2}'}),
+            'IERS_domes_number': forms.TextInput(attrs={'required': True, 'maxlength': 50}),
+            'IGS_station_code': forms.TextInput(attrs={'required': True, 'maxlength': 50}),
+            'ILRS_station_name': forms.TextInput(attrs={'required': True, 'maxlength': 50}),
+        }
+    
+    def clean_site_8_letter_code(self):
+        code = self.cleaned_data.get('site_8_letter_code')
+        if code and len(code) != 8:
+            raise ValidationError('Site 8-letter code must be exactly 8 characters long.')
+        return code.upper() if code else code
+    
+    def clean_site_2_letter_code(self):
+        code = self.cleaned_data.get('site_2_letter_code')
+        if code and len(code) != 2:
+            raise ValidationError('Site 2-letter code must be exactly 2 characters long.')
+        return code.upper() if code else code
+    
+    def clean_CDP_occupation_code(self):
+        code = self.cleaned_data.get('CDP_occupation_code')
+        if code is not None and code < 0:
+            raise ValidationError('CDP occupation code cannot be negative.')
+        return code
+    
+    def clean_CDP_monument_number(self):
+        number = self.cleaned_data.get('CDP_monument_number')
+        if number is not None and number < 0:
+            raise ValidationError('CDP monument number cannot be negative.')
+        return number
 
 class SiteLocalNetworkInfoForm(forms.ModelForm):
     class Meta:

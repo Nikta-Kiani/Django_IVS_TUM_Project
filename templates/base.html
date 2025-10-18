@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}IVS Site Administration{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Main Navigation Tabs -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="{% url 'welcome' %}" class="logo-link">
+                    <img src="{% static 'images/logo.png' %}" alt="IVS Site Administration Logo" class="logo-img">
+                </a>
+            </div>
+            
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs">
+                <button class="nav-tab" data-url="registeration">Registeration</button>
+                <button class="nav-tab" data-url="login">Login</button>
+                {% if user.is_authenticated %}
+                    <button class="nav-tab" data-url="antenna">Antenna</button>
+                    <button class="nav-tab" data-url="configuration">Configuration</button>
+                    <button class="nav-tab" data-url="logbook">Logbook</button>
+                    <button class="nav-tab" data-url="summary">Summary</button>
+                    <a href="{% url 'logout' %}" class="nav-tab">Logout</a>
+                {% endif %}
+                <button class="nav-tab" data-url="imprint">Imprint</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sub Navigation Tabs -->
+    {% block subnav %}{% endblock %}
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div class="content-container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <script>
+        // Highlight active navigation tab
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navTabs = document.querySelectorAll('.nav-tab');
+            const subNavTabs = document.querySelectorAll('.sub-nav-tab');
+            
+            // Highlight main nav tab
+            navTabs.forEach(tab => {
+                const urlKey = tab.getAttribute('data-url');
+                if (urlKey && currentPath.includes(urlKey)) {
+                    tab.classList.add('active');
+                }
+                
+                // Add click handler only for tabs with data-url
+                if (urlKey) {
+                    tab.addEventListener('click', function() {
+                        window.location.href = '/' + urlKey + '/';
+                    });
+                }
+            });
+            
+            // Highlight sub nav tab
+            subNavTabs.forEach(tab => {
+                const href = tab.getAttribute('onclick');
+                if (href && href.includes(currentPath)) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            // Enhanced form validation
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    const requiredFields = form.querySelectorAll('[required]');
+                    let isValid = true;
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            field.classList.add('error');
+                            isValid = false;
+                        } else {
+                            field.classList.remove('error');
+                        }
+                    });
+                    
+                    if (!isValid) {
+                        e.preventDefault();
+                        alert('Please fill in all required fields.');
+                    }
+                });
+                
+                // Real-time validation
+                const inputs = form.querySelectorAll('input, textarea, select');
+                inputs.forEach(input => {
+                    input.addEventListener('blur', function() {
+                        if (this.hasAttribute('required') && !this.value.trim()) {
+                            this.classList.add('error');
+                        } else {
+                            this.classList.remove('error');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html> 

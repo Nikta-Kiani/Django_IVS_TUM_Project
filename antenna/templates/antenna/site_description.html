@@ -1,45 +1,17 @@
-{% load static %}
+{% extends 'base.html' %}
+
+{% block title %}DOMES INFORMATION FORM - Site Description{% endblock %}
+
+{% block subnav %}
+    {% include 'includes/antenna_subnav.html' %}
+{% endblock %}
 
 {% block content %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOMES INFORMATION FORM - Site Description</title>
-</head>
-<body>
-
-    <header></header>
-    
-    <!-- Main Tabs for Welcome Page -->
-    <div class="tab" data-group="main">
-        <button class="tablinks" onclick="location.href='{% url 'registeration' %}'">Registeration</button>
-        <button class="tablinks" onclick="location.href='{% url 'login' %}'">Login</button>
-        <button class="tablinks" onclick="location.href='{% url 'antenna' %}'">Antenna</button>
-        <button class="tablinks" onclick="location.href='{% url 'configuration' %}'">Configuration</button>
-        <button class="tablinks" onclick="location.href='{% url 'logbook' %}'">Logbook</button>
-        <button class="tablinks" onclick="location.href='{% url 'summary' %}'">Summary</button>
-        <button class="tablinks" onclick="location.href='{% url 'impressum' %}'">Impressum</button>
-
-    <header></header>
-
-    <!-- Main Tabs for Welcome Page -->
-    <div class="tab" data-group="main">
-        <button class="tablinks" onclick="location.href='{% url 'request_form' %}'">Request Form</button>
-        <button class="tablinks" onclick="location.href='{% url 'site_description' %}'">Site Description</button>
-        <button class="tablinks" onclick="location.href='{% url 'domes_info' %}'">Domes Information</button>
-        <button class="tablinks" onclick="location.href='{% url 'approximate_position' %}'">Approximate Position</button>
-        <button class="tablinks" onclick="location.href='{% url 'instrument' %}'">Instrument</button>
-        <button class="tablinks" onclick="location.href='{% url 'operation_contact' %}'">Operation Contact</button>
-        <button class="tablinks" onclick="location.href='{% url 'site_contact' %}'">Site Contact</button>
-
     <h2>DOMES INFORMATION FORM - Site Description</h2>
-        
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Next</button>
-        </form>
-    </div>    
-</body>
-</html>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Next</button>
+    </form>
 {% endblock %}

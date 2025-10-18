@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}User Activity Logs{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Your Activity Logs</h1>
+    <p class="lead">Track all changes you have made to your data across all tabs.</p>
+    
+    {% if all_logs %}
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">All Activity</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Action</th>
+                                <th>Model</th>
+                                <th>Object</th>
+                                <th>Changes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for log in all_logs %}
+                            <tr>
+                                <td>{{ log.timestamp|date:"Y-m-d H:i:s" }}</td>
+                                <td>
+                                    <span class="badge 
+                                        {% if log.action == 'CREATE' %}bg-success
+                                        {% elif log.action == 'UPDATE' %}bg-warning
+                                        {% elif log.action == 'DELETE' %}bg-danger
+                                        {% else %}bg-secondary{% endif %}">
+                                        {{ log.action }}
+                                    </span>
+                                </td>
+                                <td>{{ log.model }}</td>
+                                <td>{{ log.object_repr|truncatechars:50 }}</td>
+                                <td>
+                                    {% if log.changes %}
+                                        <button class="btn btn-sm btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#changes-{{ forloop.counter }}" aria-expanded="false">
+                                            View Changes
+                                        </button>
+                                        <div class="collapse mt-2" id="changes-{{ forloop.counter }}">
+                                            <div class="card card-body">
+                                                {% for field, value in log.changes.items %}
+                                                    <p><strong>{{ field }}:</strong> {{ value }}</p>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <span class="text-muted">No changes recorded</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            <h4>No Activity Found</h4>
+            <p>You haven't made any changes to your data yet. Start by filling out the forms in the Antenna, Configuration, or Logbook tabs.</p>
+        </div>
+    {% endif %}
+    
+    <div class="mt-4">
+        <a href="{% url 'summary' %}" class="btn btn-primary">Back to Summary</a>
+    </div>
+</div>
+
+<style>
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.table th {
+    background-color: #f8f9fa;
+    border-top: none;
+}
+
+.badge {
+    font-size: 0.75em;
+}
+
+.collapse .card {
+    border: 1px solid #dee2e6;
+    box-shadow: none;
+}
+</style>
+{% endblock %}

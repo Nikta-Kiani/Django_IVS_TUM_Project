@@ -1,10 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
+from auditlog.models import AuditlogHistoryField
+from auditlog.registry import auditlog
 # Create your models here.
 
 class AntennaInfo(models.Model):
+    history = AuditlogHistoryField()
     # Adding a foreign key to link each DomesInformation entry to a user
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='antenna', help_text="The user who created this entry.")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True, related_name='antenna', help_text="The user who created this entry.")
     # Tab 1: Request Form
     full_name = models.CharField(max_length=150, help_text="Full name of the person making the request.")
     agency = models.CharField(max_length=150, help_text="Agency name of the requester.")
@@ -55,3 +58,10 @@ class AntennaInfo(models.Model):
     def __str__(self):
         return f'{self.site_name} - {self.user.username}'
      #return f"DOMES Info for {self.site_name} by {self.user.username}"
+     
+    class Meta:
+        verbose_name_plural = "Antenna Information"
+       
+        
+ # Register the model with auditlog
+auditlog.register(AntennaInfo)

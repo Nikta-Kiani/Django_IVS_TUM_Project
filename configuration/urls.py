@@ -19,4 +19,5 @@ urlpatterns = [
     path('on_site_contact/', views.on_site_contact_view, name='on_site_contact'),
     path('responsible_agency/', views.responsible_agency_view, name='responsible_agency'),
     path('summary/', views.configuration_summary_view, name='configuration_summary'),
+    path('success/', views.configuration_success_view, name='configuration_success'),
 ]

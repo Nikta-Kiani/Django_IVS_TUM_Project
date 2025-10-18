@@ -11,4 +11,5 @@ urlpatterns = [
     path('operation_contact/', views.operation_contact_view, name='operation_contact'),
     path('site_contact/', views.site_contact_view, name='site_contact'),
     path('summary/', views.antenna_summary_view, name='antenna_summary'),
+    path('success/', views.antenna_success_view, name='antenna_success'),
 ]

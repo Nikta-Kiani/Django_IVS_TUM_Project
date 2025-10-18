@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Antenna Information Submitted Successfully{% endblock %}
+
+{% block subnav %}
+    {% include 'includes/antenna_subnav.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h3 class="mb-0">
+                        <i class="fas fa-check-circle"></i>
+                        Success!
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <h4>Antenna Information Submitted Successfully</h4>
+                    <p>Your antenna information has been saved to the database. You can now proceed to the Configuration tab to continue filling out your site information.</p>
+                    
+                    <div class="alert alert-info">
+                        <strong>What's next?</strong>
+                        <ul class="mb-0 mt-2">
+                            <li>Continue to Configuration tab to fill out site configuration details</li>
+                            <li>Use the Logbook tab to record any maintenance activities</li>
+                            <li>View your submitted data in the Summary tab</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'configuration' %}" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i>
+                        Continue to Configuration
+                    </a>
+                    <a href="{% url 'summary' %}" class="btn btn-outline-secondary">
+                        <i class="fas fa-list"></i>
+                        View Summary
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

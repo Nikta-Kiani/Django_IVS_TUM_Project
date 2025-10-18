@@ -1,30 +1,25 @@
-{% load static %}
+{% extends 'base.html' %}
+
+{% block title %}DOMES INFORMATION FORM - Summary{% endblock %}
+
+{% block subnav %}
+    {% include 'includes/antenna_subnav.html' %}
+{% endblock %}
 
 {% block content %}
-<header></header>
-    
-    <!-- Main Tabs for Welcome Page -->
-    <div class="tab" data-group="main">
-        <button class="tablinks" onclick="location.href='{% url 'registeration' %}'">Registeration</button>
-        <button class="tablinks" onclick="location.href='{% url 'login' %}'">Login</button>
-        <button class="tablinks" onclick="location.href='{% url 'antenna' %}'">Antenna</button>
-        <button class="tablinks" onclick="location.href='{% url 'configuration' %}'">Configuration</button>
-        <button class="tablinks" onclick="location.href='{% url 'logbook' %}'">Logbook</button>
-        <button class="tablinks" onclick="location.href='{% url 'summary' %}'">Summary</button>
-        <button class="tablinks" onclick="location.href='{% url 'impressum' %}'">Impressum</button>
+<div class="container mt-4 summary-page">
+    <h2>DOMES INFORMATION FORM - Summary</h2>
 
-<h2>DOMES INFORMATION FORM - Summary</h2>
-
-<!-- Summary Tab -->
-<div id="Summary" class="tabcontent" data-group="antenna">
     <p>Review all the information entered in the previous tabs before submitting:</p>
     <p> </p>
+    
     <h4>Request Form</h4>
     <p><strong>Full Name:</strong> {{ request_data.full_name }}</p>
     <p><strong>Agency:</strong> {{ request_data.agency }}</p>
     <p><strong>Email:</strong> {{ request_data.email }}</p>
     <p><strong>Date:</strong> {{ request_data.date }}</p>
     <p> </p>
+    
     <h4>Site Description</h4>
     <p><strong>Site Name:</strong> {{ site_description_data.site_name }}</p>
     <p><strong>City or Town:</strong> {{ site_description_data.city_or_town }}</p>
@@ -34,11 +29,13 @@
     <p><strong>Support Description:</strong> {{ site_description_data.support_description }}</p>
     <p><strong>Picture:</strong> <img src="{{ site_description_data.picture.url }}" alt="Picture" /></p>
     <p> </p>
+    
     <h4>DOMES Information</h4>
     <p><strong>DOMES Number:</strong> {{ domes_info_data.domes_number }}</p>
     <p><strong>Local Number:</strong> {{ domes_info_data.local_number }}</p>
     <p><strong>4-Char Code:</strong> {{ domes_info_data.four_char_code }}</p>
     <p> </p>
+    
     <h4>Approximate Position</h4>
     <p><strong>X Coordinate(m):</strong> {{ approximate_position_data.x_coordinate_m }}</p>
     <p><strong>Y Coordinate(m):</strong> {{ approximate_position_data.y_coordinate_m }}</p>
@@ -48,21 +45,25 @@
     <p><strong>Elevation(m):</strong> {{ approximate_position_data.elevation_m }}</p>
     <p><strong>Tectonic Plate:</strong> {{ approximate_position_data.tectonic_plate }}</p>
     <p> </p>
+    
     <h4>Instrument</h4>
     <p><strong>Instrument:</strong> {{ instrument_data.instrument }}</p>
     <p><strong>Installation Date:</strong> {{ instrument_data.date_of_installation }}</p>
     <p> </p>
+    
     <h4>Operation Contact</h4>
     <p><strong>Contact Name:</strong> {{ operation_contact_data.operation_contact_name }}</p>
     <p><strong>Agency:</strong> {{ operation_contact_data.operation_agency }}</p>
     <p><strong>Email One:</strong> {{ operation_contact_data.operation_email_one }}</p>
     <p><strong>Email Two:</strong> {{ operation_contact_data.operation_email_two }}</p>
     <p> </p>
+    
     <h4>Site Contact</h4>
     <p><strong>Contact Name:</strong> {{ site_contact_data.site_contact_name }}</p>
     <p><strong>Agency:</strong> {{ site_contact_data.site_agency }}</p>
     <p><strong>Email:</strong> {{ site_contact_data.site_email }}</p>
     <p> </p>
+    
     <h4>Additional Info</h4>
     <p><strong>Additional Info:</strong> {{ site_contact_data.additional_info }}</p>
     

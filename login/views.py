@@ -11,7 +11,6 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            messages.success(request, 'Login successful!')
             
                         # Check if there is a 'next' parameter in the URL (i.e., a user tried accessing a protected page)
             #next_url = request.GET.get('next')
